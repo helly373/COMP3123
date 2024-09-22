@@ -5,7 +5,7 @@ function gretter(myArray, counter) {
 }
 let names = ['Randy Savage', 'Ric Flair', 'Hulk Hogan'];
 
-// gretter(names, 3);
+gretter(names, 3);
 
 //2nd
 
@@ -18,18 +18,18 @@ const capitalize = (word) => {
 
 }
 
-// console.log(capitalize('fooBar'));
-// console.log(capitalize('nodeJS'));
+console.log(capitalize('fooBar'));
+console.log(capitalize('nodeJS'));
 
 //3d
 const colors = ['red', 'blue', 'green', 'yellow'];
 
 const capitalizedColors = colors.map(color => capitalize(color));
-// console.log(capitalizedColors);
+console.log(capitalizedColors);
 
 //4th 
 const filterLessThan20 = (arr) => arr.filter((val) => val < 20)
-// console.log(filterLessThan20([1, 60, 30, 15, 7]))
+console.log(filterLessThan20([1, 60, 30, 15, 7]))
 
 //5th
 const calculateProduct = (arr) => arr.reduce((val, total = 1) => total * val);
