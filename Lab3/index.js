@@ -49,7 +49,7 @@ const server = http.createServer((req, res) => {
             res.statusCode = 200
             res.setHeader("Content-Type", "application/json")
             const totalSalary = employee.reduce((acc, emp) => acc + emp.Salary, 0);
-            res.write(JSON.stringify({Total_Salary}))
+            res.write(JSON.stringify({totalSalary}))
     }else{
         res.write(`{"error" : "{http.STATUS_CODES[404]}"}`)
     }
