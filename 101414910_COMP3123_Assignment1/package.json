@@ -8,15 +8,10 @@
   },
   "name": "101414910_comp3123_assignment1",
   "version": "1.0.0",
-  "routes":
-    {
-      "src": "/(.*)",
-      "dest": "index.js" 
-    },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
-
+    "start": "node index.js",
+    "build": "echo 'No build step required for an Express app'"
   },
   "keywords": [],
   "author": "",
