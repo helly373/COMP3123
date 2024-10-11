@@ -15,10 +15,7 @@
     },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\"",
-    "dev": "nodemon index.js",
-    "start": "node index.js",  
-    "build": "echo 'No build step required'"
+    "test": "echo \"Error: no test specified\""
 
   },
   "keywords": [],
