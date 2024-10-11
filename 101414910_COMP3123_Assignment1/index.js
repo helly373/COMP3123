@@ -27,7 +27,7 @@ app.use("/api/v1/user", userRouter); // Change 'userRoutes' to 'userRouter'
 app.use("/api/v1/emp", employeeRouter); // Define employee-related API routes
 
 app.get('/', (req, res) => {
-    res.send("<h1>Welcome to Note taking application - Week06 Exercise</h1>");
+    res.send("<h1>Welcome to Assignment 1</h1>");
 });
 
 
