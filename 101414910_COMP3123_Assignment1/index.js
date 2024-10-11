@@ -2,8 +2,8 @@ const express = require('express');
 // const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
-const userRouter = require('./user');
-const employeeRouter = require('./employee');
+const user = require('./user');
+const employee= require('./employee');
 
 app.use(express.json()); 
 const DB_URL = "mongodb+srv://hellychauhan373:ZnhSi7AYm5INPB7X@cluster0.nrtch.mongodb.net/Assignment1?retryWrites=true&w=majority&appName=Cluster0"
@@ -22,15 +22,15 @@ mongoose.connect(DB_URL, {
     process.exit();
 });
 
-app.use("/api/v1/user", userRouter); // Change 'userRoutes' to 'userRouter'
+app.use("/api/v1/user", user); // Change 'userRoutes' to 'userRouter'
 
-app.use("/api/v1/emp", employeeRouter); // Define employee-related API routes
+app.use("/api/v1/emp", employee); // Define employee-related API routes
 
 app.get('/', (req, res) => {
     res.send("<h1>Welcome to Assignment 1</h1>");
 });
 
 
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
-});
+// app.listen(3000, () => {
+//     console.log("Server is listening on port 3000");
+// });
