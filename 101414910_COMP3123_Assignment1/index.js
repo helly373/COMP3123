@@ -6,21 +6,13 @@ const user = require('./user');
 const employee= require('./employee');
 
 app.use(express.json()); 
-const DB_URL = "mongodb+srv://hellychauhan373:ZnhSi7AYm5INPB7X@cluster0.nrtch.mongodb.net/Assignment1?retryWrites=true&w=majority&appName=Cluster0"
-
-
-mongoose.Promise = global.Promise;
-
 // TODO - Update your mongoDB Atals Url here to Connect to the database
-mongoose.connect(DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log("Successfully connected to the database mongoDB Atlas Server");    
-}).catch(err => {
-    console.log('Could not connect to the database. Exiting now...', err);
-    process.exit();
-});
+mongoose
+  .connect(
+    "mongodb+srv://hellychauhan373:ZnhSi7AYm5INPB7X@cluster0.nrtch.mongodb.net/Assignment1?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("Error connecting to MongoDB:", err.message));
 
 app.use("/api/v1/user", user); // Change 'userRoutes' to 'userRouter'
 
