@@ -11,16 +11,18 @@ app.use(express.json())
 - add <h1> tag with message "Welcome to ExpressJs Tutorial"
 - Return home.html page to client
 */
+
 router.get('/home', (req,res) => {
-  res.sendFile(path.join(__dirname, 'home.html'));
+  res.sendFile(path.join(__dirname,'home.html'));
+
 });
 
 /*
 - Return all details from user.json file to client as JSON format
 */
-
 router.get('/profile', (req,res) => {
-   res.json(user);
+  res.json(user);
+  
 });
 
 /*
@@ -43,9 +45,7 @@ router.get('/profile', (req,res) => {
     }
 */
 router.post('/login', (req,res) => {
-  const {username, password} = req.body;
-
-  
+  const {username,password} = req.body;
 
   if(user.username !== username){
     return res.json({
@@ -62,38 +62,42 @@ router.post('/login', (req,res) => {
   }
 
   res.json({
-     status: true,
-        message: "User Is valid"
-  })
+    status: true,
+       message: "User Is valid"
+ })
 
-  
 });
 
 /*
 - Modify /logout route to accept username as parameter and display message
     in HTML format like <b>${username} successfully logout.<b>
 */
-router.get('/logout', (req,res) => {
-  const username = req.query.username;
+// router.get('/logout', (req,res) => {
+//   const {username} = req.body;
+//   res.send(`<b>${username} successfully logged out.<b>`);
+// });
 
-  if (!username) {
-    return res.send("<b>Invalid request: Username not provided.<b>");
+router.get('/logout', (req, res) => {
+  const { username } = req.query; // Extract from query
+  if (username) {
+    res.send(`<b>${username} successfully logged out.<b>`);
+  } else {
+    res.send(`<b>Username not provided. Cannot log out.<b>`);
   }
-
-  res.send(`<b>${username} successfully logged out.<b>`);
 });
+
 
 /*
 Add error handling middleware to handle below error
 - Return 500 page with message "Server Error"
 */
 app.use((err,req,res,next) => {
-  console.error(err.stack);
-  res.status(500).send('Server Error');
+  console.error(err.stack)
+  res.status(500).send("Server Error");
 });
 
 app.use('/', router);
 
-app.listen(process.env.port || 3000);
+app.listen(process.env.port || 8081);
 
-console.log('Web Server is listening at port '+ (process.env.port || 3000));
+console.log('Web Server is listening at port '+ (process.env.port || 8081));
