@@ -14,6 +14,7 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("Error connecting to MongoDB:", err.message));
 
+  
 app.use("/api/v1/user", user); // Change 'userRoutes' to 'userRouter'
 
 app.use("/api/v1/emp", employee); // Define employee-related API routes
