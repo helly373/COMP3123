@@ -1,0 +1,76 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.person-list {
+    text-align: center;
+    background-color: #27ae60;
+    color: white;
+    padding: 20px 0;
+}
+
+.person-list h1 {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 24px;
+}
+
+/* Card Styles */
+.person-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px auto;
+    background-color: #16a085;
+    color: white;
+    border-radius: 10px;
+    width: 80%;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Image */
+.person-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin-right: 20px;
+}
+
+/* User Details */
+.person-details {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.person-details h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #e67e22;
+}
+
+.person-details p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+/* Button Styles */
+.details-button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #2980b9;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.details-button:hover {
+    background-color: #1c5d87;
+}
