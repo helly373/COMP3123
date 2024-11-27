@@ -1,0 +1,54 @@
+/* ViewEmployee.css */
+
+.view-employee-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+  }
+  
+  .view-employee-container h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .view-employee-container p {
+    margin: 15px 0;
+    font-size: 1.1em;
+    color: #333333;
+  }
+  
+  .view-employee-container p strong {
+    color: #555555;
+  }
+  
+  .view-employee-container p + p {
+    border-top: 1px solid #dddddd;
+    padding-top: 10px;
+  }
+  
+  .view-employee-container {
+    background-color: #f0f8ff; /* Light blue background to make it more friendly */
+  }
+  
+  .view-employee-container p {
+    color: #2b2b2b;
+  }
+  
+  .view-employee-container p strong {
+    color: #3333cc; /* Darker blue to make labels stand out */
+  }
+  
+  .view-employee-container p + p {
+    border-color: #bbbbbb; /* Light gray for separator borders */
+  }
+  
+  .view-employee-container .highlight {
+    color: #ff6347; /* Use for any special highlights (e.g., warnings or important data) */
+  }
+  
