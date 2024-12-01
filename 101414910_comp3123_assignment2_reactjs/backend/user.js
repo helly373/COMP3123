@@ -10,7 +10,7 @@ require('dotenv').config();
 
 // Middleware setup
 app.use(cors({
-  origin: 'https://comp-3123-5ffsmyi7q-helly373s-projects.vercel.app', 
+  origin: 'https://comp-3123-nine.vercel.app', 
   credentials: true
 }));
 app.use(express.json()); 
