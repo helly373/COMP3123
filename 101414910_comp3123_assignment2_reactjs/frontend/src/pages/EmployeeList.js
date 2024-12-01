@@ -19,9 +19,8 @@ function EmployeeList() {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
-  
         setEmployees(response.data);
-        setFilteredEmployees(response.data);
+        setFilteredEmployees(response.data); // Initialize filtered employees
       } catch (error) {
         console.error('Error fetching employees:', error);
         alert('Error fetching employee list. Please try again later.');
@@ -84,7 +83,7 @@ function EmployeeList() {
         </div>
         <h2>Employee List</h2>
         <div className="action-buttons">
-        <input
+          <input
             type="text"
             placeholder="Search by Department or Position"
             value={searchQuery}
@@ -110,7 +109,7 @@ function EmployeeList() {
             </tr>
           </thead>
           <tbody>
-            {employees.map((employee) => (
+            {filteredEmployees.map((employee) => (
               <tr key={employee._id}>
                 <td>{employee.first_name}</td>
                 <td>{employee.last_name}</td>
@@ -121,13 +120,17 @@ function EmployeeList() {
                   <div className="button-group">
                     <button
                       className="action-button view-button"
-                      onClick={() => navigate(`/view-employee/${employee._id}`)}
+                      onClick={() =>
+                        navigate(`/view-employee/${employee._id}`)
+                      }
                     >
                       View
                     </button>
                     <button
                       className="action-button update-button"
-                      onClick={() => navigate(`/edit-employee/${employee._id}`)}
+                      onClick={() =>
+                        navigate(`/edit-employee/${employee._id}`)
+                      }
                     >
                       Update
                     </button>
