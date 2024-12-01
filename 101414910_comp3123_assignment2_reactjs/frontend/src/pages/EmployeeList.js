@@ -5,6 +5,8 @@ import '../css/EmployeeList.css';
 
 function EmployeeList() {
   const [employees, setEmployees] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredEmployees, setFilteredEmployees] = useState([]);
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
   const navigate = useNavigate();
 
@@ -17,7 +19,9 @@ function EmployeeList() {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
+  
         setEmployees(response.data);
+        setFilteredEmployees(response.data);
       } catch (error) {
         console.error('Error fetching employees:', error);
         alert('Error fetching employee list. Please try again later.');
@@ -37,6 +41,9 @@ function EmployeeList() {
           },
         });
         setEmployees(employees.filter((employee) => employee._id !== eid));
+        setFilteredEmployees(
+          filteredEmployees.filter((employee) => employee._id !== eid)
+        );
         alert('Employee deleted successfully.');
       } catch (error) {
         console.error('Error deleting employee:', error);
@@ -77,6 +84,13 @@ function EmployeeList() {
         </div>
         <h2>Employee List</h2>
         <div className="action-buttons">
+        <input
+            type="text"
+            placeholder="Search by Department or Position"
+            value={searchQuery}
+            onChange={handleSearch}
+            className="search-input"
+          />
           <button
             className="add-employee-button"
             onClick={() => navigate('/add-employee')}
