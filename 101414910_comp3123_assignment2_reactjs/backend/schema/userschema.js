@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
 
-// Define the User schema with your requirements
 const userSchema = new Schema({
     username: {
         type: String,
@@ -28,12 +27,9 @@ const userSchema = new Schema({
     }
 });
 
-// Updated userSchema
 userSchema.pre('save', async function (next) {
-    // Only hash the password if it's new or being modified
     if (this.isModified('password')) {
         try {
-            console.log('Hashing password...'); // Debug log
             const salt = await bcrypt.genSalt(10);
             this.password = await bcrypt.hash(this.password, salt);
         } catch (error) {
@@ -41,7 +37,6 @@ userSchema.pre('save', async function (next) {
         }
     }
     
-    // Update the updated_at field on every save
     this.updated_at = Date.now();
     
     next();

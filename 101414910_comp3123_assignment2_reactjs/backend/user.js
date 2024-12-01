@@ -1,22 +1,21 @@
 const express = require('express');
-const { body, validationResult } = require('express-validator'); // Import validation functions
+const { body, validationResult } = require('express-validator'); 
 const cors = require('cors');
 const app = express();
 const router = express.Router();
 const User = require('./schema/userschema');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-require('dotenv').config(); // Load environment variables
+require('dotenv').config(); 
 
 // Middleware setup
 app.use(cors({
-  origin: 'http://localhost:3001', // Replace with your frontend URL
+  origin: 'http://localhost:3001', 
   credentials: true
 }));
-app.use(express.json()); // Add express.json() to parse incoming JSON requests
+app.use(express.json()); 
 
-// JWT secret key (ideally, store it in environment variables)
-const JWT_SECRET = process.env.JWT_SECRET; // Use JWT secret from .env
+const JWT_SECRET = process.env.JWT_SECRET;
 
 //POST /api/v1/user/signup 
 
@@ -58,7 +57,6 @@ router.post('/signup',
 
             await newUser.save();
 
-            // Generate JWT token
             const token = jwt.sign({ userId: newUser._id }, JWT_SECRET, { expiresIn: '1h' });
 
             res.status(201).json({ message: 'User created successfully', userID: newUser._id, token });
@@ -76,10 +74,10 @@ router.post('/login',
     body('password').notEmpty().withMessage('Password is required.'),
     
     async (req, res) => {
-        const errors = validationResult(req); // Check for validation errors
+        const errors = validationResult(req); 
         if (!errors.isEmpty()) {
             console.error('Validation error:', errors.array());
-            return res.status(400).json({ errors: errors.array() }); // Return errors if validation fails
+            return res.status(400).json({ errors: errors.array() });
         }
 
         const { email, password } = req.body;
@@ -99,7 +97,6 @@ router.post('/login',
                 return res.status(401).json({ message: 'Invalid password' });
             }
 
-            // Generate JWT token
             const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
 
             res.status(200).json({ message: 'Login Successful', user: user.username, token });
@@ -110,4 +107,4 @@ router.post('/login',
     }
 );
 
-module.exports = router; // Export the router
+module.exports = router; 

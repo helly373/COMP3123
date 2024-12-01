@@ -42,7 +42,6 @@ const employeeSchema = new Schema({
 });
 
 employeeSchema.pre('save', function (next) {
-    // Update the updated_at field on every save
     this.updated_at = Date.now();    
     next();
 });
