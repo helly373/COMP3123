@@ -94,13 +94,12 @@ async (req, res) => {
     }
 
     const { eid } = req.params;
-    const updateData = req.body; // Get the data to update from the request body
+    const updateData = req.body; 
 
     try {
-        // Find the employee by ID and update their details
         const updatedEmployee = await Employee.findByIdAndUpdate(eid, updateData, {
-            new: true, // Return the updated document
-            runValidators: true // Validate the update against the schema
+            new: true, 
+            runValidators: true 
         });
 
         if (!updatedEmployee) {
