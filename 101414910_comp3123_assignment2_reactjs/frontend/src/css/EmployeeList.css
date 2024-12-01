@@ -52,9 +52,9 @@
 .add-employee-button {
   background-color: #007bff;
   color: #fff;
-  padding: 10px 15px;
+  padding: 8px 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
   font-weight: bold;
@@ -93,6 +93,10 @@
 }
 
 .action-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
   padding: 8px 12px;
   border: none;
   border-radius: 5px;
@@ -127,10 +131,16 @@
 .delete-button:hover {
   background-color: #c82333;
 }
+.search-and-add {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .search-input {
-  margin-right: 10px;
+  margin-right: auto;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 250px;
+  width: 50%;
 }

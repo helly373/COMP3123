@@ -83,20 +83,21 @@ function EmployeeList() {
         </div>
         <h2>Employee List</h2>
         <div className="action-buttons">
-        <button
-            className="add-employee-button"
-            onClick={() => navigate('/add-employee')}
-          >
-            Add Employee
-          </button>
-          <input
-            type="text"
-            placeholder="Search by Department or Position"
-            value={searchQuery}
-            onChange={handleSearch}
-            className="search-input"
-          />
-         
+        <div className="search-and-add">
+            <input
+              type="text"
+              placeholder="Search by Department or Position"
+              value={searchQuery}
+              onChange={handleSearch}
+              className="search-input"
+            />
+            <button
+              className="add-employee-button"
+              onClick={() => navigate('/add-employee')}
+            >
+              Add Employee
+            </button>
+          </div>
         </div>
         <table className="employee-table">
           <thead>
