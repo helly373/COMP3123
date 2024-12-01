@@ -83,6 +83,12 @@ function EmployeeList() {
         </div>
         <h2>Employee List</h2>
         <div className="action-buttons">
+        <button
+            className="add-employee-button"
+            onClick={() => navigate('/add-employee')}
+          >
+            Add Employee
+          </button>
           <input
             type="text"
             placeholder="Search by Department or Position"
@@ -90,12 +96,7 @@ function EmployeeList() {
             onChange={handleSearch}
             className="search-input"
           />
-          <button
-            className="add-employee-button"
-            onClick={() => navigate('/add-employee')}
-          >
-            Add Employee
-          </button>
+         
         </div>
         <table className="employee-table">
           <thead>
