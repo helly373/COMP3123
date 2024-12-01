@@ -10,7 +10,7 @@ require('dotenv').config();
 
 // Middleware setup
 app.use(cors({
-  origin: 'http://localhost:3001', 
+  origin: 'https://comp-3123-5ffsmyi7q-helly373s-projects.vercel.app', 
   credentials: true
 }));
 app.use(express.json()); 
