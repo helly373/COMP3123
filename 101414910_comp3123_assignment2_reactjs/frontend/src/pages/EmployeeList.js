@@ -52,6 +52,20 @@ function EmployeeList() {
     navigate('/login'); // Redirect to login page
   };
 
+  // Function to handle search
+  const handleSearch = (event) => {
+    const query = event.target.value.toLowerCase();
+    setSearchQuery(query);
+
+    // Filter employees based on department or position
+    const filtered = employees.filter(
+      (employee) =>
+        employee.department.toLowerCase().includes(query) ||
+        employee.position.toLowerCase().includes(query)
+    );
+    setFilteredEmployees(filtered);
+  };
+
   return (
     <div className="employee-list-container">
       <div className="employee-list-card">
