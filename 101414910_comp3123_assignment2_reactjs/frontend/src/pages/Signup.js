@@ -19,10 +19,9 @@ function Signup() {
         password,
       });
       alert('Signup successful! Please login.');
-      navigate('/login'); // Redirect to the login page after signup
+      navigate('/login'); 
     } catch (error) {
       if (error.response) {
-        // If the request was made and the server responded with a status code outside the 2xx range
         console.error('Signup error response:', error.response);
         const statusCode = error.response.status;
         const errorMessage = error.response.data.message || 'An error occurred';
@@ -42,11 +41,9 @@ function Signup() {
           alert(`Signup failed: ${errorMessage}`);
         }
       } else if (error.request) {
-        // If the request was made but no response was received
         console.error('Signup error request:', error.request);
         alert('Signup failed: No response received from the server. Please check your network connection.');
       } else {
-        // If something else happened while setting up the request
         console.error('Signup error:', error.message);
         alert(`Signup failed: An unexpected error occurred - ${error.message}`);
       }

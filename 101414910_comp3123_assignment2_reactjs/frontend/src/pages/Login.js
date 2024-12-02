@@ -16,10 +16,9 @@ function Login() {
         email,
         password,
       });
-      // Store the token in localStorage
       localStorage.setItem('token', response.data.token);
       alert('Login successful');
-      navigate('/employees'); // Redirect to a protected route after login
+      navigate('/employees'); 
     } catch (error) {
       if (error.response) {
         console.error('Login error response:', error.response);
